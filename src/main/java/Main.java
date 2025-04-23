@@ -7,23 +7,41 @@ class Main {
       Service s = new Service();
       Scanner scanner = new Scanner(System.in);
 
-      System.out.print("Podaj imię studenta: ");
-      String name = scanner.nextLine();
+      System.out.println("1 - Dodaj studenta");
+      System.out.println("2 - Wyświetl wszystkich studentów");
+      System.out.println("3 - Zakończ program");
+      System.out.print("Wybierz opcję: ");
 
-      System.out.print("Podaj wiek studenta: ");
-      int age = scanner.nextInt();
+      int choice = scanner.nextInt();
+      scanner.nextLine();
 
-      s.addStudent(new Student(name, age));
-      System.out.println("Student dodany!");
+      switch (choice) {
+        case 1:
+          System.out.println("Podaj imię studenta:");
+          String name = scanner.nextLine();
 
-      var students = s.getStudents();
-      System.out.println("\nLista studentów:");
-      for(Student current : students) {
-        System.out.println(current.ToString());
+          System.out.println("Podaj wiek studenta:");
+          int age = scanner.nextInt();
+
+          s.addStudent(new Student(name, age));
+          System.out.println("Dodano studenta!");
+          break;
+
+        case 2:
+          System.out.println("Lista wszystkich studentów:");
+          s.getStudents().forEach(student -> System.out.println(student.ToString()));
+          break;
+
+        case 3:
+          System.out.println("Program zakończony.");
+          System.exit(0);
+          break;
+
+        default:
+          System.out.println("Nieprawidłowa opcja!");
       }
 
       scanner.close();
-
     } catch (IOException e) {
       System.out.println("Błąd: " + e.getMessage());
     }
