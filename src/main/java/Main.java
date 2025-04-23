@@ -22,8 +22,15 @@ class Main {
 
           System.out.println("Podaj wiek studenta:");
           int age = scanner.nextInt();
+          scanner.nextLine(); // consume newline
 
-          s.addStudent(new Student(name, age));
+          System.out.println("Podaj numer indeksu:");
+          String studentId = scanner.nextLine();
+
+          System.out.println("Podaj kierunek studiów:");
+          String major = scanner.nextLine();
+
+          s.addStudent(new Student(name, age, studentId, major));
           System.out.println("Dodano studenta!");
           break;
 
