@@ -8,13 +8,10 @@ class Main {
       Scanner scanner = new Scanner(System.in);
 
       while (true) {
-        System.out.println("\nWybierz opcję:");
-        System.out.println("1. Dodaj studenta");
-        System.out.println("2. Wyświetl wszystkich studentów");
-        System.out.println("3. Zakończ");
+        System.out.println("Dodaj studenta");
 
         int choice = scanner.nextInt();
-        scanner.nextLine(); // consume newline
+        scanner.nextLine(); 
 
         if (choice == 1) {
           System.out.print("Podaj imię studenta: ");
@@ -22,7 +19,7 @@ class Main {
 
           System.out.print("Podaj wiek studenta: ");
           int age = scanner.nextInt();
-          scanner.nextLine(); // consume newline
+          scanner.nextLine(); 
 
           s.addStudent(new Student(name, age));
           System.out.println("Student dodany!");
